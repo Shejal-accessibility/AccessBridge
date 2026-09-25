@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Client Dashboard | AccessBridge</title><link rel="stylesheet" href="css/style.css"></head><body><a href="#main" class="skip-link">Skip to main content</a><header><div class="wrapper"><a href="index.html" class="brand" aria-label="AccessBridge home"><span class="logo" aria-hidden="true">AB</span><span>AccessBridge</span></a><nav aria-label="Primary">
+<ul class="nav-list">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="training.html">Training</a></li>
+<li><a href="issues.html">Issues</a></li>
+<li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+<li><a href="audit-request.html">Request Audit</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="enroll.html">Enroll</a></li>
+</ul>
+</nav></div></header><main id="main" class="wrapper"><h1>Client Dashboard</h1><section><p>Program metrics, audit health, and remediation governance.</p>
+<button id="openDialog" class="dialog-trigger" aria-haspopup="dialog" aria-label="Quarterly Audit Summary">Open quarterly audit summary</button>
+<div id="auditDialog" role="dialog" aria-modal="true" aria-labelledby="dlgHeading" hidden>
+<h2 id="dlgHeading">Quarterly Audit Summary</h2>
+<p>Twelve products assessed, forty-eight active defects, seventeen resolved in the current quarter.</p>
+<p>Top recurring risks include keyboard support failures, low contrast controls, and missing accessible names.</p>
+<button id="closeDialog" aria-label="Close quarterly audit summary dialog">Close dialog</button>
+</div></section></main><footer><div class="wrapper"><p>Enterprise accessibility governance and compliance platform.</p></div>
+<div class="footer-links"><a href="sitemap.html">Sitemap</a> <a href="accessibility-statement.html">Accessibility Statement</a></div>
+<p>© 2025 AccessBridge</p>
+</footer>
+<script>
+const openDialogButton = document.getElementById('openDialog');
+const closeDialogButton = document.getElementById('closeDialog');
+const dialog = document.getElementById('auditDialog');
+
+let previousFocus = null;
+
+function getFocusableElements() {
+  return dialog.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+}
+
+function trapFocus(event) {
+  if (event.key !== 'Tab') return;
+
+  const focusableElements = getFocusableElements();
+
+  if (!focusableElements.length) return;
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  if (event.shiftKey) {
+    if (document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+    }
+  } else {
+    if (document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  }
+}
+
+function openDialog() {
+  previousFocus = document.activeElement;
+
+  dialog.hidden = false;
+
+  const focusableElements = getFocusableElements();
+
+  if (focusableElements.length) {
+    focusableElements[0].focus();
+  }
+
+  dialog.addEventListener('keydown', trapFocus);
+}
+
+function closeDialog() {
+  dialog.hidden = true;
+
+  dialog.removeEventListener('keydown', trapFocus);
+
+  if (previousFocus) {
+    previousFocus.focus();
+  }
+}
+
+openDialogButton.addEventListener('click', openDialog);
+
+closeDialogButton.addEventListener('click', closeDialog);
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' && !dialog.hidden) {
+    closeDialog();
+  }
+});
+</script>
+</body></html>

@@ -1,0 +1,39 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Course Enrollment | AccessBridge</title><link rel='stylesheet' href='css/style.css'></head><body><a href="#main" class="skip-link">Skip to main content</a><header><div class="wrapper"><a href="index.html" class="brand" aria-label="AccessBridge home"><span class="logo" aria-hidden="true">AB</span><span>AccessBridge</span></a><nav aria-label="Primary">
+<ul class="nav-list">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="training.html">Training</a></li>
+<li><a href="issues.html">Issues</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="audit-request.html">Request Audit</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="enroll.html" aria-current="page">Enroll</a></li>
+</ul>
+</nav></div></header><main id='main' class='wrapper'><h1>Course Enrollment</h1><section><p>Use this form to enroll employees in enterprise accessibility training programs and workshops.</p><h2>Training Enrollment Form</h2>
+<p class="instruction">Fields marked with * are mandatory. Complete all required fields before submitting this form.</p>
+<form data-validate novalidate>
+<label for="fullName">Full Name *</label><input id="fullName" type="text" autocomplete="name" aria-required="true" data-required="true" data-empty="Enter your full name." aria-describedby="fullNameErr"><div id="fullNameErr" class="error" hidden></div>
+<label for="email">Business Email *</label><input id="email" type="email" autocomplete="email" aria-required="true" data-required="true" data-empty="Enter your business email address." aria-describedby="emailErr"><div id="emailErr" class="error" hidden></div>
+<label for="phone">Phone Number *</label><input id="phone" type="tel" autocomplete="tel" aria-required="true" data-required="true" data-empty="Enter your phone number." aria-describedby="phoneErr"><div id="phoneErr" class="error" hidden></div>
+<label for="org">Organization Name *</label><input id="org" type="text" autocomplete="organization" aria-required="true" data-required="true" data-empty="Enter your organization name." aria-describedby="orgErr"><div id="orgErr" class="error" hidden></div>
+
+
+
+
+<label for="course">Training Program *</label>
+<input id="course" class="combo-input" role="combobox" aria-label="Training Program" aria-autocomplete="list" aria-expanded="false" aria-controls="course-list" aria-activedescendant="" aria-required="true" data-required="true" data-empty="Select training program." aria-describedby="courseErr" autocomplete="off">
+<div id="courseErr" class="error" hidden></div>
+<div id="course-list" role="listbox" hidden aria-label="Training Program options"><div role="option" id="course-opt1" aria-selected="false">Developer Accessibility</div><div role="option" id="course-opt2" aria-selected="false">QA Accessibility Testing</div><div role="option" id="course-opt3" aria-selected="false">Accessible Design</div></div><fieldset><legend>Preferred Engagement Model *</legend>
+<input id="eng1" type="radio" name="engagement" aria-describedby="engagementErr"><label for="eng1">Project-based</label>
+<input id="eng2" type="radio" name="engagement" aria-describedby="engagementErr"><label for="eng2">Retainer</label>
+<div id="engagementErr" class="error" hidden></div></fieldset>
+<fieldset><legend>Consent *</legend>
+<input id="agree" type="checkbox" aria-describedby="agreeErr"><label for="agree">I consent to being contacted regarding this request.</label>
+<div id="agreeErr" class="error" hidden></div></fieldset>
+<button type="submit">Submit</button></form><div class="status" hidden></div>
+</section></main><footer><div class='wrapper'><p>Enterprise accessibility governance platform.</p></div>
+<div class="footer-links"><a href="sitemap.html">Sitemap</a> <a href="accessibility-statement.html">Accessibility Statement</a></div>
+<p>© 2025 AccessBridge</p>
+</footer><script src='js/main.js'></script></body></html>
